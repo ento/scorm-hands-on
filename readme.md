@@ -542,7 +542,7 @@ API calls and also functions to find LMS API. Makes our life easier.
 
 This file describes the content package and is a must for every SCORM package. It's structure is described at [SCORM website](http://scorm.com/scorm-explained/technical-scorm/content-packaging/manifest-structure/). Open `imsmanifest.xml` file and edit lines **21, 23, 28 and 29** to this
 
-```
+```xml
 <?xml version="1.0" ?>
 <!--
 Manifest template to demonstrate the proper XML namespace declarations for
