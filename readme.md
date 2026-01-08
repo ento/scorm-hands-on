@@ -77,10 +77,10 @@ Once you open **launchpage.html**, you will see a lot of javascript code. Skippi
    * Exit
 
 
-At line 318, you can see, when this page loads, it calls the **doStart** function, located at line 74, which does the necessary initialization. Once the initialization is done, you navigate through the course by pressing the next and previous buttons which in turn calls **next**(line 177) and **previous**(line 170) functions. Both of these functions call function **goToPage**(line 113). If you skip the code for disabling buttons, you can see that your progress is being tracked even when you are navigating through the course using the following code:
+At line 318, you can see, when this page loads, it calls the **doStart** function, located at line 74, which does the necessary initialization. Once the initialization is done, you navigate through the course by pressing the next and previous buttons which in turn calls **next** (line 177) and **previous** (line 170) functions. Both of these functions call function **goToPage** (line 113). If you skip the code for disabling buttons, you can see that your progress is being tracked even when you are navigating through the course using the following code:
 
 ```javascript
- //save the current location as the bookmark
+//save the current location as the bookmark
 ScormProcessSetValue("cmi.core.lesson_location", currentPage);
 
 //in this sample course, the course is considered complete when the last page is reached
@@ -89,7 +89,7 @@ if (currentPage == (pageArray.length - 1)){
     ScormProcessSetValue("cmi.core.lesson_status", "completed");
 ```
 
-You can refer [SCORM 1.2 Run Time Environment manual](https://github.com/abhi9bakshi/scorm-hands-on/raw/master/resources/books/SCORM_1.2_RunTimeEnv.pdf) to know more about **cmi.core.lesson_location**(page 30) and **cmi.core.lesson_status**(page 32).
+You can refer [SCORM 1.2 Run Time Environment manual](https://github.com/abhi9bakshi/scorm-hands-on/raw/master/resources/books/SCORM_1.2_RunTimeEnv.pdf) to know more about **cmi.core.lesson_location** (page 30) and **cmi.core.lesson_status** (page 32).
 
 
 So, now you know, at least on a basic level, how the tracking is done. But, how are the pages loaded dynamically? Well, in this case, if you refer to launchpage.html line 47, you will see a **pageArray** with 15 elements, each being a relative URL to a page. If you jump to line 120, you can see this same array is used to source content to content frame.
@@ -106,9 +106,9 @@ Let's take a look at one of these pages to see what goes in there. Jump to _Play
 
 As is evident, this page comprises of mostly plain HTML. Since that is rendered as-is by the browser, let's take a look at the non-html content.
 
-Lines 5-7 import the stylesheet. The javascript sourced by line 9(_contentfunctions.js_) contains HTML which is injected using line 21 & 22 on the page.
+Lines 5-7 import the stylesheet. The javascript sourced by line 9 (_contentfunctions.js_) contains HTML which is injected using line 21 & 22 on the page.
 
-From what I can see, I find line 8(_scormfunctions.js_) to be redundant, since it was already loaded in _launchpage.html_ and no scorm calls have been done from this page, but, I may be wrong.
+From what I can see, I find line 8 (_scormfunctions.js_) to be redundant, since it was already loaded in _launchpage.html_ and no scorm calls have been done from this page, but, I may be wrong.
 
 So, basically all this page is, is plain HTML. All SCORM calls is still being made by _launchpage.html_.
 
@@ -128,7 +128,7 @@ Now, let's jump to _assessmenttemplate.html_ to see how the quiz is handled.
 
 #### assessmenttemplate.html
 
-Upon opening the page, you see many lines of javascript. Skipping all that, jump directly to body section(line 193). There you can see two functions, **RenderTest** and **AddTagLine**. The function **AddTagLine** simply injects a line from _contentfunctions.js_. Let's seehow **RenderTest** function works.
+Upon opening the page, you see many lines of javascript. Skipping all that, jump directly to body section (line 193). There you can see two functions, **RenderTest** and **AddTagLine**. The function **AddTagLine** simply injects a line from _contentfunctions.js_. Let's seehow **RenderTest** function works.
 
 
 If you have dealt with _Spaghetti Code_ earlier, you will feel right at home here. But trust me, we can get through it if we take it in one piece at a time. In order to understand **RenderTest** function, you must know first what happens during the initialization. So, let's get started:
@@ -316,7 +316,7 @@ In the previous chapter, we saw 6 SCORM calls. But, did you realize we never tri
 
 Open the _launchpage.html_ file in golf course. If you look at the flow of execution, it proceeds as follows:
 
-**body onload**(line 318) --> **doStart**(line 74) --> **ScormProcessInitialize**(line 83)
+**body onload** (line 318) --> **doStart** (line 74) --> **ScormProcessInitialize** (line 83)
 
 Now, **ScormProcessInitialize** function is defined in _scormfunctions.js_. But, before we jump to _scormfunctions.js_, let's take a look at [SCORM Run Time Environment manual](http://scorm.com/scorm-explained/technical-scorm/run-time/). If you check that article, you will find that SCORM 1.1/1.2 has 8 API calls, viz.
 
