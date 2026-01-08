@@ -72,9 +72,9 @@ Once you open **launchpage.html**, you will see a lot of javascript code. Skippi
 
 1. Content Frame
 2. Nav Div
-  * Previous
-  * Next
-  * Exit
+   * Previous
+   * Next
+   * Exit
 
 
 At line 318, you can see, when this page loads, it calls the **doStart** function, located at line 74, which does the necessary initialization. Once the initialization is done, you navigate through the course by pressing the next and previous buttons which in turn calls **next**(line 177) and **previous**(line 170) functions. Both of these functions call function **goToPage**(line 113). If you skip the code for disabling buttons, you can see that your progress is being tracked even when you are navigating through the course using the following code:
